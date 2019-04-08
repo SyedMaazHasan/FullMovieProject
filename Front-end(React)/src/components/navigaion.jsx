@@ -39,9 +39,11 @@ class Navigation extends Component {
               <Nav.Link href="../Rentals" style={{ color: "#000000" }}>
                 Rentals
               </Nav.Link>
-              <Nav.Link href="../Logout" style={{ color: "#000000" }}>
-                Logout
-              </Nav.Link>
+              {token && (
+                <Nav.Link href="../Logout" style={{ color: "#000000" }}>
+                  Logout
+                </Nav.Link>
+              )}
             </Nav>
           </Navbar.Collapse>
         </Navbar>

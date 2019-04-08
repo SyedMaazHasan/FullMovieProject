@@ -10,9 +10,14 @@ import { apiEndPoint } from "../config.json";
 axios.defaults.headers.common["x-auth"] = localStorage.getItem("token");
 class Logout extends Component {
   logoutHandler = () => {
-    //localStorage.removeItem("token");
-    toast("Logout successfull");
-    //this.props.history.push("/LoginForm");
+    localStorage.removeItem("token");
+    // setTimeout(() => {
+    //   window.location = "/LoginForm";
+    // }, 2000);
+    // toast.error("Logout successfull", { autoClose: 1500 });
+
+    toast.error("Logout successfull", { autoClose: 1500 });
+    this.props.history.push("/LoginForm");
   };
 
   render() {

@@ -46,8 +46,12 @@ class Form extends Component {
       localStorage.setItem("token", result.headers["x-auth-token"]);
       //const result = e.currentTarget.title;
       //this.props.history.replace("/Customers");
-      window.location = "/Movies";
-      toast.success("Logging in");
+      // window.location = "/Movies";
+      // toast.success("Logging in");
+      setTimeout(() => {
+        window.location = "/Movies";
+      }, 2000);
+      toast.success("Logging in", { autoClose: 1500 });
     } catch (ex) {
       if (ex.response && ex.response.status === 404) {
         console.log("known error occourred", ex);
