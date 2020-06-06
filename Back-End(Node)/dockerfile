@@ -1,0 +1,14 @@
+FROM tiangolo/node-frontend:10 as build-stage
+# make a directory if not exist where my app is copied in container
+WORKDIR /app
+# copy package.json inside container working directory (NOTE WHEN YOU ISSUE WORKDIR COMMAND, IT WILL BECOME CURRENT DIRECTORY FOR FUTURE PATH
+COPY package*.json /app/
+# run npm install inside working directory
+RUN npm install
+# copy rest of project content inside working directory
+# NOTE HAMESHA PEHLA ARGUMENT IS FOR HOST MACHINE IN DOCKER
+COPY ./ /app/
+# provide the continer port -- this is different to what is inside node application running port
+EXPOSE 4000
+# below command will run when container starts
+CMD [ "npm","run","start" ]
