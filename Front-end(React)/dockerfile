@@ -1,4 +1,4 @@
-FROM tiangolo/node-frontend:10 as build-stage
+FROM node:10 as build-stage
 # make a directory if not exist where my app is copied in container
 WORKDIR /app
 # copy package.json inside container working directory (NOTE WHEN YOU ISSUE WORKDIR COMMAND, IT WILL BECOME CURRENT DIRECTORY FOR FUTURE PATH
